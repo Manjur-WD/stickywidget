@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Calligraffitti&family=Playpen+Sans:wght@100..800&display=swap');
+
+body {
+  background-color: whitesmoke;
+  overflow-x: hidden;
+}
+
+.font-calli {
+  font-family: "Calligraffitti", cursive !important;
+}
+
+.font-playpen {
+  font-family: "Playpen Sans", cursive !important;
+}
+
+.outer-btn {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(136, 136, 136) inset;
+}
+
+.inner-btn {
+  height: 40px;
+  padding: 10px;
+  background-color: white;
+  margin: 3px;
+  border-radius: 10px;
+  line-height: 20px;
+}
+
+.inner-btn::after {
+  content: "";
+  height: 100%;
+  width: 150%;
+  background: linear-gradient(to right, white, aqua, yellow);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: rotateElement 3s infinite;
+}
+
+.navbar {
+  margin: 20px;
+  border-radius: 20px;
+}
+
+@keyframes rotateElement {
+  0% {
+    background: linear-gradient(to right, aqua, yellow, white);
+  }
+
+  100% {
+    background: linear-gradient(to right, white, yellow, aqua);
+  }
+}
+
+.sidebar-sticky-note {
+  height: calc(100vh - 150px);
+  border-radius: 20px;
+}
+
+.sticky-board {
+  height: calc(100vh - 150px);
+  border-radius: 20px;
+  background: url("./assets/board-2.jpg") no-repeat center/cover;
+  overflow-y: auto;
+}
+
+.sticky-board::-webkit-scrollbar {
+  display: none;
+}
+
+.sticky-note-background {
+  perspective: 1000px;
+}
+
+.sticky-note {
+  min-height: 300px;
+  width: 100%;
+  background-color: rgb(248, 224, 2);
+  box-shadow: 5px 5px 10px rgb(134, 134, 134);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sticky-note .completed{
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.sticky-pin {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-70%);
+}
+
+.sticky-page {
+  min-height: 350px;
+  background-color: rgb(248, 224, 2);
+}
+
+.pick-notes {
+  width: 100vw;
+  background: linear-gradient(rgba(255, 255, 0, 0.795), rgba(255, 255, 255, 0.774), rgba(0, 255, 255, 0.877)), url(./assets/sticky-notes.jpg);
+  display: grid;
+  align-content: center;
+}
+
+.pick-notes img {
+  position: relative;
+  z-index: 99;
+}
+
+
+
+.pick-note-color {
+  width: 24%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.pick-note-color:hover{
+  scale: 1.05;
+}
+
+.pick-note-color a{
+  border: 2px dotted #3f3f41;
+  border-radius: 30px;
+  padding: 10px;
+  text-align: center;
+}
+
+.pick-note-color:nth-child(1) {
+  background-color: #f8e002;
+}
+
+.pick-note-color:nth-child(2) {
+  background-color: #f3a7dc;
+}
+
+.pick-note-color:nth-child(3) {
+  background-color: #02f0f8;
+}
+
+.pick-note-color:nth-child(4) {
+  background-color: #02f8a6;
+}
+
+.action-btns{
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    z-index: 99;
+    transform: translateY(100%);
+    transition: all 0.5s ease;
+}
+
+.sticky-note:hover .action-btns{
+  transform: translateY(0);
+}
