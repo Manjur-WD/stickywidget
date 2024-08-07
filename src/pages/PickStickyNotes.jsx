@@ -175,6 +175,7 @@ const PickStickyNotes = () => {
                         title: e.target.value,
                       })
                     }
+                    required
                   />
                   <textarea
                     name="sticky-note-desc"
@@ -188,6 +189,7 @@ const PickStickyNotes = () => {
                         description: e.target.value,
                       })
                     }
+                    required
                   ></textarea>
                 </div>
               </div>

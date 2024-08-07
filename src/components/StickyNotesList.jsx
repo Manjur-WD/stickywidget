@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
 import StickyNote from "./StickyNote";
 import axios from "axios";
+import { useContext } from "react";
+import { RenderCheck } from "../context/RenderContext";
+
 
 const StickyNotesList = () => {
+
   const [stickyNotes, setStickyNotes] = useState([]);
+  const { isRendered, setRender } = useContext(RenderCheck);
+  
+  
 
   const loadStickyNotes = async () => {
     try {
       const response = await axios.get("http://localhost:3001/stickyNotes");
       setStickyNotes(response.data); // Directly set the data from the response
+      setRender(!isRendered);
     } catch (error) {
       console.error("Error loading sticky notes:", error);
     }
@@ -16,7 +24,7 @@ const StickyNotesList = () => {
 
   useEffect(() => {
     loadStickyNotes();
-  }, []);
+  }, [isRendered]);
 
   return (
     <>
